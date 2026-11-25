@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "oceansdelight:elder_guardian_slice",
+    "oceansdelight:elder_guardian_slice",
+    "farmersdelight:cooked_rice"
+  ],
+  "result": {
+    "count": 1,
+    "id": "oceansdelight:elder_guardian_roll"
+  }
+}

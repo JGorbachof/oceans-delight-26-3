@@ -1,0 +1,18 @@
+plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+neoForge { version = '26.3.0.118'; mods { oceansdelight { sourceSet(sourceSets.main) } } }
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+group = mod_group_id
+version = mod_version
+base { archivesName = 'oceansdelight-26.3' }
+repositories { maven { url = 'https://cursemaven.com'; content { includeGroup 'curse.maven' } } }
+dependencies { implementation 'curse.maven:farmers-delight-neoforged-1782500:9526885' }
+sourceSets.main.resources.srcDir 'src/generated/resources'
+// Keep legacy datagen sources for migration, but don't compile them in the runtime candidate.
+sourceSets.main.java.exclude '**/datagen/**', '**/client/renderer/RenderLayerRegistration.java', '**/setup/ClientSetup.java'
+tasks.processResources {
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(minecraft_version:minecraft_version,minecraft_version_range:minecraft_version_range,neo_version:neo_version,neo_version_range:neo_version_range,loader_version_range:loader_version_range,mod_id:mod_id,mod_name:mod_name,mod_license:mod_license,mod_version:mod_version,mod_authors:mod_authors,mod_description:mod_description)
+    }
+}

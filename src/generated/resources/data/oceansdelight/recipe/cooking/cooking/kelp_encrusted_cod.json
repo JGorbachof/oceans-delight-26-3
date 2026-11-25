@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "experience": 0.35,
+  "ingredients": [
+    "farmersdelight:cod_slice",
+    "#c:eggs",
+    "minecraft:kelp"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "oceansdelight:kelp_encrusted_cod"
+  }
+}
